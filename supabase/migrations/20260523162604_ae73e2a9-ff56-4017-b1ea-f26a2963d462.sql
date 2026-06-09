@@ -1,0 +1,1 @@
+ALTER TABLE public.warmup_subreddits ADD COLUMN allows_body boolean NOT NULL DEFAULT true;

@@ -1,0 +1,4 @@
+ALTER TABLE public.users
+  ADD COLUMN IF NOT EXISTS access_until TIMESTAMPTZ,
+  ADD COLUMN IF NOT EXISTS subscription_status TEXT NOT NULL DEFAULT 'inactive',
+  ADD COLUMN IF NOT EXISTS pass_type TEXT;

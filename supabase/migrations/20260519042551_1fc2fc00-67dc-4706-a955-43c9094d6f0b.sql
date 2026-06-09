@@ -1,0 +1,1 @@
+ALTER TYPE job_type_enum ADD VALUE IF NOT EXISTS 'competitor_serp';

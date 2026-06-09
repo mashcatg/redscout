@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "RedReach — Reddit DM Automation",
+  "version": "0.1.0",
+  "description": "Auto-DM every commenter of a Reddit thread with spintax variations and full dedupe.",
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "RedReach",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "permissions": ["storage", "tabs", "scripting", "alarms", "identity"],
+  "host_permissions": [
+    "https://*.reddit.com/*",
+    "https://oauth.reddit.com/*",
+    "https://*.supabase.co/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.reddit.com/*"],
+      "js": ["src/content/reddit-presence.ts", "src/content/autopilot.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "src/popup/index.html"],
+      "matches": ["https://*.reddit.com/*"]
+    }
+  ]
+}

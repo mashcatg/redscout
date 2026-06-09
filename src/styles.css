@@ -1,0 +1,138 @@
+
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0rem;
+  --background: oklch(99% 0.006 75);
+  --foreground: oklch(10% 0 0);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(10% 0 0);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(10% 0 0);
+  --primary: oklch(65% 0.25 30);
+  --primary-foreground: oklch(99% 0.006 75);
+  --secondary: oklch(96% 0.008 75);
+  --secondary-foreground: oklch(10% 0 0);
+  --muted: oklch(96% 0.008 75);
+  --muted-foreground: oklch(45% 0.01 75);
+  --accent: oklch(94% 0.012 75);
+  --accent-foreground: oklch(10% 0 0);
+  --destructive: oklch(58% 0.22 27);
+  --destructive-foreground: oklch(99% 0.006 75);
+  --border: oklch(88% 0.008 75);
+  --input: oklch(88% 0.008 75);
+  --ring: oklch(65% 0.25 30);
+  --chart-1: oklch(65% 0.25 30);
+  --chart-2: oklch(60% 0.18 200);
+  --chart-3: oklch(55% 0.2 150);
+  --chart-4: oklch(70% 0.18 80);
+  --chart-5: oklch(50% 0.22 310);
+  --sidebar: oklch(98% 0.012 75);
+  --sidebar-foreground: oklch(10% 0 0);
+  --sidebar-primary: oklch(65% 0.25 30);
+  --sidebar-primary-foreground: oklch(99% 0.006 75);
+  --sidebar-accent: oklch(94% 0.012 75);
+  --sidebar-accent-foreground: oklch(10% 0 0);
+  --sidebar-border: oklch(88% 0.008 75);
+  --sidebar-ring: oklch(65% 0.25 30);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    border-radius: 0 !important;
+  }
+  [class*="shadow-"], [class*="drop-shadow-"] {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  body {
+    font-weight: 500;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .label-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .mono {
+    font-variant-numeric: tabular-nums;
+  }
+  .animate-orbit {
+    animation: orbit calc(var(--duration, 20s)) linear infinite;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle, 0) * 1deg))
+      translateY(calc(var(--radius, 160px)))
+      rotate(calc(var(--angle, 0) * -1deg));
+  }
+  100% {
+    transform: rotate(calc(var(--angle, 0) * 1deg + 360deg))
+      translateY(calc(var(--radius, 160px)))
+      rotate(calc(var(--angle, 0) * -1deg - 360deg));
+  }
+}

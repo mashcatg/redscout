@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 40 30% 98%;
+  --fg: 20 14% 8%;
+  --muted: 35 18% 94%;
+  --muted-fg: 25 8% 40%;
+  --border: 30 14% 86%;
+  --card: 0 0% 100%;
+  --primary: 15 85% 55%;
+  --primary-fg: 40 30% 99%;
+  --accent: 35 25% 92%;
+}
+
+html, body, #root {
+  width: 360px;
+  min-height: 520px;
+  margin: 0;
+  font-family: 'Bricolage Grotesque', Inter, system-ui, sans-serif;
+  background: hsl(var(--bg));
+  color: hsl(var(--fg));
+  -webkit-font-smoothing: antialiased;
+}
+
+body { overflow-x: hidden; }
+
+* { box-sizing: border-box; }
+
+button { cursor: pointer; font-family: inherit; }
+
+.serif { font-family: 'Instrument Serif', Georgia, serif; }
+
+.scroll-thin::-webkit-scrollbar { width: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
